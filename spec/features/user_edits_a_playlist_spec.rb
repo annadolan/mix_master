@@ -1,7 +1,8 @@
 RSpec.feature "User edits a playlist" do
   scenario "they enter data to edit a playlist" do
     song_one, song_two, song_three = create_list(:song, 3)
-    playlist = Playlist.create(name: "Pump up the Jam", song_ids: [song_one.id, song_two.id])
+    playlist = create(:playlist, song_ids: [song_one.id, song_two.id])
+
     new_playlist_name = "Slow Jamz"
 
     visit playlist_path(playlist)
